@@ -45,15 +45,18 @@ app.config(function($routeProvider){
     } )
     .when("/contacts/favorites", {
       templateUrl: 'partials/contacts/favorites.html',
-      controller: 'Favorites'
+      controller: 'Favorites',
+      resolve: { isAuth }
     } )
     .when("/contacts/new", {
       templateUrl: 'partials/contacts/new.html',
-      controller: 'NewContact'
+      controller: 'NewContact',
+      resolve: { isAuth }
     } )
     .when("/contacts/view", {
       templateUrl: 'partials/contacts/view.html',
-      controller: 'ViewContact'
+      controller: 'ViewContact',
+      resolve: { isAuth }
     } )
     .otherwise('/login');
 });

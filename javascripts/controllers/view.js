@@ -1,11 +1,26 @@
 "use strict";
 
 app.controller("ViewContact", function($rootScope, $scope, ContactService){
+  $scope.contacts = [];
 
-
+  const getContacts = () => {
     ContactService.getContacts($rootScope.uid).then((results) => {
       $scope.contacts = results;
     }).catch((error) => {
-      console.log("error in getMovies", error);
+      console.log("error in getContact", error);
     });
-  });
+  };
+
+  getContacts();
+
+  $scope.deleteContact = (contact) => {
+    console.log(contact);
+    ContactService.deleteContact(contact).then((result)=>{
+      getContacts();
+    }).catch((err)=>{
+      console.log("error in deleteContact", err);
+    });
+  };
+
+
+});
