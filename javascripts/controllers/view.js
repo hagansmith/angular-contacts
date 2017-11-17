@@ -14,7 +14,6 @@ app.controller("ViewContact", function($rootScope, $scope, ContactService){
   getContacts();
 
   $scope.deleteContact = (contact) => {
-    console.log(contact);
     ContactService.deleteContact(contact).then((result)=>{
       getContacts();
     }).catch((err)=>{
