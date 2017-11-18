@@ -3,9 +3,10 @@
 app.controller("ViewContact", function($rootScope, $scope, ContactService){
   $scope.contacts = [];
 
+
   const getContacts = () => {
     ContactService.getContacts($rootScope.uid).then((results) => {
-      $scope.contacts = results;
+    $scope.contacts = Object.keys(results).length === 0? null : results;
     }).catch((error) => {
       console.log("error in getContact", error);
     });
@@ -20,6 +21,4 @@ app.controller("ViewContact", function($rootScope, $scope, ContactService){
       console.log("error in deleteContact", err);
     });
   };
-
-
 });
