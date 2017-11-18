@@ -10,7 +10,11 @@
       <h5>{{contact.home_address}}</h5>
       <h5>{{contact.home_city}}, {{contact.home_state}} {{contact.home_zip}}</h5>
       <button class="btn btn-default delete" ng-click="deleteContact(key)">Delete</button>
-
     </div>
   </div>
+</div>
+
+<div class="text-center" ng-show="!contacts">
+  <h1> Bummer no contacts here </h1>
+  <a ng-href="#!/contacts/new"> Add Some Friends </a>
 </div>
