@@ -18,9 +18,9 @@ app.service("ContactService", function ($http, $rootScope, $q, FIREBASE_CONFIG){
           });
       }).catch((error) => {
         reject(error);
+      });
     });
-  });
-};
+  };
 
   const deleteContact = (contact) => {
     return $http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contact}.json`);
@@ -46,5 +46,23 @@ app.service("ContactService", function ($http, $rootScope, $q, FIREBASE_CONFIG){
     };
   };
 
-  return {postNewContact, getContacts, deleteContact, updateContact, createContactObject};
+  const getFavoriteContacts = (userUid) => {
+    let contacts = [];
+    return $q((resolve, reject) => {
+      $http.get(`${FIREBASE_CONFIG.databaseURL}/contacts.json?orderBy="uid"&equalTo="${userUid}"`).then((results) => {
+        let fbContacts = results.data;
+          Object.keys(fbContacts).forEach((key) => {
+            fbContacts[key].id = key;
+            if (fbContacts[key].favorite){
+              contacts.push(fbContacts[key]);
+            }
+            resolve(contacts);
+          });
+      }).catch((error) => {
+        reject(error);
+      });
+    });
+  };
+
+  return {postNewContact, getContacts, deleteContact, updateContact, createContactObject, getFavoriteContacts};
 });
