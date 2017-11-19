@@ -22,8 +22,8 @@ app.service("ContactService", function ($http, $rootScope, $q, FIREBASE_CONFIG){
     });
   };
 
-  const deleteContact = (contact) => {
-    return $http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contact}.json`);
+  const deleteContact = (contactId) => {
+    return $http.delete(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json`);
   };
 
   const updateContact = (contact, contactId) => {
