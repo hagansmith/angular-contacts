@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ViewContact", function($rootScope, $scope, ContactService){
+app.controller("ViewContact", function($location, $rootScope, $scope, ContactService){
   $scope.contacts = [];
 
 
@@ -33,6 +33,10 @@ app.controller("ViewContact", function($rootScope, $scope, ContactService){
     }).catch((err)=>{
       console.log("error in updateFavorite", err);
     });
+  };
+
+  $scope.editContact = (contactId) => {
+    $location.path(`/contacts/edit/${contactId}`);
   };
 
 });

@@ -5,6 +5,7 @@
       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{key}}" aria-expanded="false" aria-controls="collapseExample"> {{contact.first_name}} {{contact.last_name}}
       </button>
     <div class="collapse" id="{{key}}">
+      <a ng-click="editContact(contact.id)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i><a>
       <h4>Cell Phone: {{contact.cell_phone}}</h4> <h4>Work Phone: {{contact.work_phone}}</h4>
       <h4>Email: {{contact.email}}</h4>
       <h5>{{contact.home_address}}</h5>
