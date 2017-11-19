@@ -63,5 +63,10 @@ app.config(function($routeProvider){
       controller: 'EditContact',
       resolve: { isAuth }
     } )
+    .when("/contacts/detail/:id", {
+      templateUrl: 'partials/contacts/detail.html',
+      controller: 'DetailContact',
+      resolve: { isAuth }
+    } )
     .otherwise('/login');
 });
