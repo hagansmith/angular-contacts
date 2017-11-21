@@ -2,4 +2,4 @@
 
 "use strict";
 
-const app = angular.module("AngularContacts", ["ngAnimate", "ngRoute", "ngSanitize"]);
+const app = angular.module("AngularContacts", ["ngAnimate", "ngRoute", "ngSanitize", "star-rating"]);

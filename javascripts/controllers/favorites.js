@@ -36,4 +36,15 @@ app.controller("Favorites", function($rootScope, $scope, ContactService){
     });
   };
 
+  $scope.starChange = (event, contact) => {
+    if(event.rating){
+      contact.rating = event.rating;
+      let updatedContact = ContactService.createContactObject(contact);
+      ContactService.updateContact(updatedContact, contact.id).then(()=>{
+      }).catch((err)=>{
+        console.log("error in updateFavorite", err);
+      });
+    };
+  };
+
 });
