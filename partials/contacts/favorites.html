@@ -1,7 +1,6 @@
 <div class="text-center" id="favorites">
   <h1>Favorites</h1>
   <div ng-repeat="(key, contact) in contacts | orderBy: 'rating' : true">
-    <!-- <div ng-repeat="key in contact"> -->
       <button class="btn btn-primary col-sm-4 col-sm-offset-4" type="button" data-toggle="collapse" data-target="#{{key}}" aria-expanded="false" aria-controls="collapseExample"> {{contact.first_name}} {{contact.last_name}}
       </button>
     <div class="collapse col-sm-12" id="{{key}}">
@@ -16,7 +15,6 @@
         <p>Rating:</p>
         <star-rating-comp rating="contact.rating" size="'medium'" num-of-stars="10" on-click="starChange($event, contact)"></star-rating-comp>
       </p>
-      <!-- <button class="btn btn-default delete" ng-click="deleteContact(key)">Delete</button> -->
     </div>
   </div>
   </div>

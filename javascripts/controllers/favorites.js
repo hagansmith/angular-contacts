@@ -14,14 +14,6 @@ app.controller("Favorites", function($rootScope, $scope, ContactService){
 
   getFavoriteContacts();
 
-  // $scope.deleteContact = (contact) => {
-  //   ContactService.deleteContact(contact).then((result)=>{
-  //     getContacts();
-  //   }).catch((err)=>{
-  //     console.log("error in deleteContact", err);
-  //   });
-  // };
-
   $scope.updateFavorite = (contact) => {
     if (!contact.favorite) {
       contact.favorite = true;

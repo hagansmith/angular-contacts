@@ -13,11 +13,8 @@ app.controller("EditContact", function($location, $routeParams, $scope, ContactS
 
   getContact();
 
-// take arguments "contact"(which is defined in scope) and "contacts"(any values changed in the edit): use contacts to update contact, put edited contact to firebase and redirect to view route when complete.
-  $scope.editContactInfo = (contact, contacts) => {
-    Object.keys(contacts).forEach((key) => {
-      contact[key] = contacts[key];
-    });
+
+  $scope.editContactInfo = (contact) => {
     ContactService.updateContact(contact, $routeParams.id).then(()=>{
       $location.path(`/contacts/view`);
     }).catch((err)=>{

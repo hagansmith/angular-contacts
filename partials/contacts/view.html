@@ -1,16 +1,9 @@
 <div class="text-center" id="ViewContact">
   <h1> Contacts </h1>
-
-  <div class="input-group input-group-sm col-xs-6 col-xs-offset-3">
-    <span class="input-group-addon glyphicon glyphicon-search" aria-hidden="true"></span>
-    <input type="text" class="form-control" placeholder="Search Contacts" ng-model="searchText">
-  </div>
-
-  <div ng-repeat="(key, contact) in contacts | filter: searchText | orderBy: ['last_name', 'first_name'] ">
-    <!-- <div ng-repeat="key in contact"> -->
-      <button class="btn btn-primary col-sm-4 col-sm-offset-4" type="button" data-toggle="collapse" data-target="#{{key}}" aria-expanded="false" aria-controls="collapseExample"> {{contact.first_name}} {{contact.last_name}}
+  <div ng-repeat="(key, contact) in contacts">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{key}}" aria-expanded="false" aria-controls="collapseExample"> {{contact.first_name}} {{contact.last_name}}
       </button>
-    <div class="collapse col-sm-12" id="{{key}}">
+    <div class="collapse" id="{{key}}">
       <a class="favorite" ng-show="!contact.favorite" ng-click="updateFavorite(contact)"><i class="fa fa-star-o fa-2x"></i></a>
       <a class="favorite" ng-show="contact.favorite" ng-click="updateFavorite(contact)"><i class="fa fa-star fa-2x"></i></a>
       <a ng-click="editContact(contact.id)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i><a>

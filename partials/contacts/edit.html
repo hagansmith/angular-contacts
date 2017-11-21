@@ -4,47 +4,47 @@
   <form name="editContact" class="form-inline editContact" novalidate>
     <div class="form-group col-md-6">
       <label for="first_name" class="col-md-4 col-md-0ffset-2">First Name</label>
-      <input type="text" class="form-control col-md-4" id="first_name" ng-model="contacts.first_name" placeholder="First Name" ng-value="contact.first_name">
+      <input type="text" class="form-control col-md-4" id="first_name" ng-model="contact.first_name" placeholder="First Name">
     </div>
     <div class="form-group col-md-6">
       <label for="last_name" class="col-md-4">Last Name</label>
-      <input type="text" class="form-control col-md-4" id="last_name" ng-model="contacts.last_name" placeholder="Last Name" ng-value="contact.last_name">
+      <input type="text" class="form-control col-md-4" id="last_name" ng-model="contact.last_name" placeholder="Last Name">
     </div>
     <div class="form-group col-md-6">
       <label for="cell_phone" class="col-md-4 col-md-0ffset-2">Phone Number</label>
-      <input type="text" class="form-control col-md-4" id="cell_phone" ng-model="contacts.cell_phone" placeholder="123-123-1234" ng-value="contact.cell_phone">
+      <input type="text" class="form-control col-md-4" id="cell_phone" ng-model="contact.cell_phone" placeholder="123-123-1234">
     </div>
     <div class="form-group col-md-6">
       <label for="work_phone" class="col-md-4 col-md-0ffset-2">Work Phone</label>
-      <input type="text" class="form-control col-md-4" id="work_phone" ng-model="contacts.work_phone" placeholder="123-123-1234" ng-value="contact.work_phone">
+      <input type="text" class="form-control col-md-4" id="work_phone" ng-model="contact.work_phone" placeholder="123-123-1234">
     </div>
     <div class="form-group col-md-12">
       <label for="email" class="col-md-2 col-md-0ffset-2">Email Address</label>
-      <input type="email" class="form-control col-md-8" id="email" ng-model="contacts.email" placeholder="somebody@domain.com" ng-value="contact.email">
+      <input type="email" class="form-control col-md-8" id="email" ng-model="contact.email" placeholder="somebody@domain.com">
       <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
     </div>
     <div class="form-group col-md-6">
       <label for="home_address" class="col-md-4 col-md-0ffset-2">Street Address</label>
-      <input type="text" class="form-control col-md-4" id="home_address" ng-model="contacts.home_address" placeholder="123 Some Street" ng-value="contact.home_address">
+      <input type="text" class="form-control col-md-4" id="home_address" ng-model="contact.home_address" placeholder="123 Some Street">
     </div>
     <div class="form-group col-md-6">
       <label for="home_city" class="col-md-4 col-md-0ffset-2">City</label>
-      <input type="text" class="form-control col-md-4" id="home_city" ng-model="contacts.home_city" placeholder="Some City" ng-value="contact.home_city">
+      <input type="text" class="form-control col-md-4" id="home_city" ng-model="contact.home_city" placeholder="Some City">
     </div>
     <div class="form-group col-md-6">
       <label for="home_state" class="col-md-4 col-md-0ffset-2">State</label>
-      <input type="text" class="form-control col-md-4" id="home_state" ng-model="contacts.home_state" placeholder="ST" ng-minlength="2" ng-value="contact.home_state">
+      <input type="text" class="form-control col-md-4" id="home_state" ng-model="contact.home_state" placeholder="ST" ng-minlength="2">
     </div>
     <div class="form-group col-md-6">
       <label for="home_zip" class="col-md-4 col-md-0ffset-2">Zipcode</label>
-      <input type="text" class="form-control col-md-4" id="home_zip" ng-model="contacts.home_zip" placeholder="12345" ng-minlength="5" ng-value="contact.home_zip">
+      <input type="text" class="form-control col-md-4" id="home_zip" ng-model="contact.home_zip" placeholder="12345" ng-minlength="5">
     </div>
-    <!-- <div class="checkbox col-md-12">
+    <div class="checkbox col-md-12">
       <label>
-        <input type="checkbox" ng-model="contacts.favorite" ng-checked="contact.favorite"> Favorite Contact
+        <input type="checkbox" ng-model="contact.favorite"> Favorite Contact
       </label>
-    </div> -->
-    <button type="submit" class="btn btn-default col-md-6 col-md-offset-3" ng-click="editContactInfo(contact, contacts)" value="Save">Save</button>
+    </div>
+    <button type="submit" class="btn btn-default col-md-6 col-md-offset-3" ng-click="editContactInfo(contact)" value="Save">Save</button>
   </form>
 </div>
 </div>
