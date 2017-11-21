@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ViewContact", function($rootScope, $scope, ContactService){
+app.controller("ViewContact", function($location, $rootScope, $scope, ContactService){
   $scope.contacts = [];
 
 
@@ -21,4 +21,26 @@ app.controller("ViewContact", function($rootScope, $scope, ContactService){
       console.log("error in deleteContact", err);
     });
   };
+
+  $scope.updateFavorite = (contact) => {
+    if (!contact.favorite) {
+      contact.favorite = true;
+    } else {
+      contact.favorite = false;
+    }
+    let updatedContact = ContactService.createContactObject(contact);
+    ContactService.updateContact(updatedContact, contact.id).then(()=>{
+    }).catch((err)=>{
+      console.log("error in updateFavorite", err);
+    });
+  };
+
+  $scope.editContact = (contactId) => {
+    $location.path(`/contacts/edit/${contactId}`);
+  };
+
+  $scope.detailContact = (contactId) => {
+    $location.path(`/contacts/detail/${contactId}`);
+  };
+
 });

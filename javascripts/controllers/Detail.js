@@ -1,18 +1,17 @@
 "use strict";
 
-app.controller("Favorites", function($rootScope, $scope, ContactService){
+app.controller("DetailContact", function($location, $routeParams, $scope, ContactService){
   $scope.contacts = [];
 
-
-  const getFavoriteContacts = () => {
-    ContactService.getFavoriteContacts($rootScope.uid).then((results) => {
-    $scope.contacts = Object.keys(results).length === 0? null : results;
+  const getContact = () => {
+    ContactService.getSingleContact($routeParams.id).then((results) => {
+    $scope.contact=results.data;
     }).catch((error) => {
       console.log("error in getContact", error);
     });
   };
 
-  getFavoriteContacts();
+  getContact();
 
   $scope.updateFavorite = (contact) => {
     if (!contact.favorite) {
@@ -21,8 +20,7 @@ app.controller("Favorites", function($rootScope, $scope, ContactService){
       contact.favorite = false;
     }
     let updatedContact = ContactService.createContactObject(contact);
-    ContactService.updateContact(updatedContact, contact.id).then(()=>{
-      getFavoriteContacts();
+    ContactService.updateContact(updatedContact, $routeParams.id).then(()=>{
     }).catch((err)=>{
       console.log("error in updateFavorite", err);
     });

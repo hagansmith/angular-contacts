@@ -5,11 +5,15 @@
       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{key}}" aria-expanded="false" aria-controls="collapseExample"> {{contact.first_name}} {{contact.last_name}}
       </button>
     <div class="collapse" id="{{key}}">
+      <a class="favorite" ng-show="!contact.favorite" ng-click="updateFavorite(contact)"><i class="fa fa-star-o fa-2x"></i></a>
+      <a class="favorite" ng-show="contact.favorite" ng-click="updateFavorite(contact)"><i class="fa fa-star fa-2x"></i></a>
+      <a ng-click="editContact(contact.id)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i><a>
+      <a ng-click="detailContact(contact.id)"><i class="fa fa-search-plus fa-2x" aria-hidden="true"></i><a>
       <h4>Cell Phone: {{contact.cell_phone}}</h4> <h4>Work Phone: {{contact.work_phone}}</h4>
       <h4>Email: {{contact.email}}</h4>
       <h5>{{contact.home_address}}</h5>
       <h5>{{contact.home_city}}, {{contact.home_state}} {{contact.home_zip}}</h5>
-      <button class="btn btn-default delete" ng-click="deleteContact(key)">Delete</button>
+      <button class="btn btn-default delete" ng-click="deleteContact(contact.id)">Delete</button>
     </div>
   </div>
 </div>
