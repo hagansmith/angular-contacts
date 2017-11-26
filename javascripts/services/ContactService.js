@@ -42,7 +42,8 @@ app.service("ContactService", function ($http, $rootScope, $q, FIREBASE_CONFIG){
       "home_zip" : contact.home_zip,
       "last_name" : contact.last_name,
       "uid" : contact.uid,
-      "work_phone" : contact.work_phone
+      "work_phone" : contact.work_phone,
+      "rating" : contact.rating
     };
   };
 
